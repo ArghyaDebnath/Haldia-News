@@ -3,7 +3,7 @@
          
           <!-- Side Widget -->
           <div class="card my-4">
-            <h5 class="card-header bg-primary text-light">Recent News</h5>
+            <h5 class="card-header  text-light" style="background-color: black;">Recent News</h5>
             <div class="card-body">
                       <ul class="mb-0">
 <?php
@@ -13,7 +13,7 @@ while ($row=mysqli_fetch_array($query)) {
 ?>
 
   <li>
-   <a style="text-decoration:none;" href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><?php echo htmlentities($row['posttitle']);?></a>
+   <a style="text-decoration:none;color:black" href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><?php echo htmlentities($row['posttitle']);?></a>
       </li>
             <?php } ?>
           </ul>

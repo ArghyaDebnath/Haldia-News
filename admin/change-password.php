@@ -16,7 +16,7 @@ $newhashedpass=password_hash($newpassword, PASSWORD_BCRYPT, $options);
 
 date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
-$sql=mysqli_query($con,"SELECT AdminPassword FROM  tbladmin where AdminUserName='$adminid' || AdminEmailId='$adminid'");
+$sql=mysqli_query($con,"SELECT AdminPassword FROM  tbladmin where AdminUserName='$uname' || AdminEmailId='$adminid'");
 $num=mysqli_fetch_array($sql);
 if($num>0)
 {

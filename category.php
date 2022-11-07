@@ -81,13 +81,18 @@ while ($row=mysqli_fetch_array($query)) {
 
 
 ?>
-<h1><?php echo htmlentities($row['category']);?> News</h1>
+<h1 style="color:black"><?php echo htmlentities($row['category']);?> News</h1>
           <div class="card mb-4">
        <img class="card-img-top" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
             <div class="card-body">
               <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
            
-              <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn btn-primary">Read More &rarr;</a>
+              <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn btn-dark" id="RM-hover">Read More &rarr;</a>
+              <style>
+                #RM-hover:hover{
+                  background-color: black;
+                }
+              </style>
             </div>
             <div class="card-footer text-muted">
               Posted on <?php echo htmlentities($row['postingdate']);?>

@@ -65,7 +65,7 @@ endif;
          
           <!-- Side Widget -->
           <div class="card my-4">
-            <h5 class="card-header bg-primary text-light">Recent News</h5>
+            <h5 class="card-header  text-light" style="background-color: black;">Recent News</h5>
             <div class="card-body">
                       <ul class="mb-0">
 <?php
@@ -75,7 +75,7 @@ while ($row=mysqli_fetch_array($query)) {
 ?>
 
   <li>
-   <a style="text-decoration:none;" href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><?php echo htmlentities($row['posttitle']);?></a>
+   <a style="text-decoration:none;color:black" href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><?php echo htmlentities($row['posttitle']);?></a>
       </li>
             <?php } ?>
           </ul>
@@ -131,7 +131,7 @@ $pt=$row['postdetails'];
  <div class="row m-5">
    <div class="col-md-12">
 <div class="card my-4">
-            <h5 class="card-header bg-primary text-light">Leave a Comment:</h5>
+            <h5 class="card-header  text-light" style="background-color: black;">Leave a Comment:</h5>
             <div class="card-body">
               <form name="Comment" method="post">
       <input type="hidden" name="csrftoken" value="<?php echo htmlentities($_SESSION['token']);?>"/>
@@ -147,7 +147,7 @@ $pt=$row['postdetails'];
                 <div class="form-group">
                   <textarea class="form-control" name="comment" rows="3" placeholder="Comment" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                <button type="submit" class="btn" style="background-color: black;color:white" name="submit">Submit</button>
               </form>
             </div>
           </div>

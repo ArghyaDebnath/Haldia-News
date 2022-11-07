@@ -1,26 +1,52 @@
 <style type="text/css">
   .a-style{
-    color: orange;
+    color: white;
     text-decoration: none;
   }
   .a-style:hover{
     text-decoration: none;
-    color: white;
+    color: red;
+    transition: 1s;
   }
   .font-style i{
-   color: orange;
+   color: white;
   }
   .font-style i:hover{
-    color: white;
+    text-decoration: none;
+    transition: 1s;
   }
   .font-style i{
     font-weight: bold;
+  }
+  #social1:hover{
+    color: blue;
+    text-decoration: none;
+  }
+  #social2:hover{
+    color: cyan;
+    text-decoration: none;
+  }
+  #social3:hover{
+    color: red;
+    text-decoration: none;
+  }
+  #social4:hover{
+    color: blue;
+    text-decoration: none;
+  }
+  #social5:hover{
+    color: #ff0066;
+    text-decoration: none;
+  }
+  #social6:hover{
+    color: red;
+    text-decoration: none;
   }
 </style>
 
 
 <!-- Footer -->
-<footer class="page-footer font-small indigo bg-primary">
+<footer class="page-footer font-small indigo " style="background-color: black;">
 
   <!-- Footer Links -->
   <div class="container">
@@ -63,7 +89,7 @@
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight-bold">
-          <a href="contact-us.php" class="a-style">Contact</a>
+          <a href="contact-us.php" class="a-style">Contact Us</a>
         </h6>
       </div>
       <!-- Grid column -->
@@ -77,11 +103,7 @@
 
       <!-- Grid column -->
       <div class="col-md-8 col-12 mt-5">
-        <p style="line-height: 1.7rem" class="text-light">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem
-          aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-          explicabo.
-          Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
+        <p style="line-height: 1.7rem" class="text-light">ENJOY THE NEWS AND GET READY FOR UPCOMMING UPDATES</p>
       </div>
       <!-- Grid column -->
 
@@ -99,27 +121,27 @@
 
           <!-- Facebook -->
           <a class="fb-ic font-style" href="#" >
-            <i class="fab fa-facebook-f fa-lg white-text mr-4"> </i>
+            <i class="fab fa-facebook-f fa-lg white-text mr-4" id="social1"> </i>
           </a>
           <!-- Twitter -->
           <a class="tw-ic font-style" href="#">
-            <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
+            <i class="fab fa-twitter fa-lg white-text mr-4" id="social2"> </i>
           </a>
           <!-- Google +-->
           <a class="gplus-ic font-style" href="#">
-            <i class="fab fa-google-plus-g fa-lg white-text mr-4"> </i>
+            <i class="fab fa-google-plus-g fa-lg white-text mr-4" id="social3"> </i>
           </a>
           <!--Linkedin -->
           <a class="li-ic font-style" href="#">
-            <i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
+            <i class="fab fa-linkedin-in fa-lg white-text mr-4" id="social4"> </i>
           </a>
           <!--Instagram-->
           <a class="ins-ic font-style" href="#">
-            <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+            <i class="fab fa-instagram fa-lg white-text mr-4" id="social5"> </i>
           </a>
           <!--Pinterest-->
           <a class="pin-ic font-style" href="#">
-            <i class="fab fa-pinterest fa-lg white-text"> </i>
+            <i class="fab fa-pinterest fa-lg white-text" id="social6"> </i>
           </a>
 
         </div>
@@ -135,7 +157,9 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3 text-light">Copyright © 2022 by
-    <a style="text-decoration: none; color: orange;" href="#"> Haldia News</a>
+    <a style="text-decoration: none; color: orange;" href="#"> 
+  <img src="images/logo.png" alt="Haldia News" style="height: 50px;width:150px;">
+  </a>
   </div>
   <!-- Copyright -->
 

@@ -10,11 +10,11 @@ include('includes/config.php');
   <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>News Portal | Home Page</title>
+    <title>Haldia News | Home Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,6 +32,7 @@ include('includes/config.php');
 
     <!-- Navigation -->
    <?php include('includes/header.php');?>
+   <!-- <h3 align="center">LATEST NEWS</h3> -->
    <?php include('includes/slider.php'); ?>
     <!-- Page Content -->
     <div class="container-fluide m-3">
@@ -72,8 +73,13 @@ while ($row=mysqli_fetch_array($query)) {
               <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
                  <p><b>Category : </b> <a href="category.php?catid=<?php echo htmlentities($row['cid'])?>"><?php echo htmlentities($row['category']);?></a> </p>
        
-              <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn btn-primary">Read More &rarr;</a>
+              <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn btn-dark" id="RM-hover">Read More &rarr;</a>
             </div>
+            <style>
+              #RM-hover:hover{
+                background-color: black;
+              }
+            </style>
             <div class="card-footer text-muted">
               Posted on <?php echo htmlentities($row['postingdate']);?>
            

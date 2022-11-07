@@ -6,7 +6,11 @@ body {
 
 @media (min-width: 992px) {
   body {
-    padding-top: 56px;
+    padding-top: 70px;
+  }
+  .carousel-item {
+    height: 26vh;
+    min-height: 300px;
   }
 }
 
