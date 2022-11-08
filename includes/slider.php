@@ -1,9 +1,10 @@
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap');
 body {
   padding-top: 60px;
 }
 .carousel-indicators {
-  bottom: 1800px;
+  bottom: 2041px;
 }
 .carousel-item {
   height: 90vh;
@@ -27,13 +28,40 @@ body {
   min-height: 237px;
       
   }
+  #slider-text{
+  background: rgba(0, 0, 0, 0.699);
+  padding: 4vh;
+  width: 100%;
+  /* position: initial; */
+  margin-left: -238px;
+  font-size: 25px;
+  font-family: 'Oswald', sans-serif;
+  max-width: 100% !important;
+    padding: 0 !important;
+    line-height: 14px !important;
+    position: absolute !important;
+    margin-left: unset !important;
+    text-align: center !important;
+    top: 50%;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+  .carousel-indicators {
+  bottom: 2295px;
+}
+
 }
 #slider-text{
   background: rgba(0, 0, 0, 0.699);
   padding: 4vh;
   width: 100%;
   /* position: initial; */
-  margin-left: 0;
+  margin-left: -238px;
+  font-size: 25px;
+  font-family: 'Oswald', sans-serif;
+  
 
 }
 
