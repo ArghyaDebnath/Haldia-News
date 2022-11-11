@@ -30,17 +30,16 @@ body {
   }
   #slider-text{
   background: rgba(0, 0, 0, 0.699);
-  padding: 4vh;
-  width: 100%;
-  /* position: initial; */
-  margin-left: -238px;
+  /* padding: 4vh; */
+  position: relative;
+  /* margin-left: -238px; */
   font-size: 25px;
   font-family: 'Oswald', sans-serif;
   max-width: 100% !important;
     padding: 0 !important;
     line-height: 14px !important;
-    position: absolute !important;
-    margin-left: unset !important;
+    /* position: absolute !important; */
+    /* margin-left: unset !important; */
     text-align: center !important;
     top: 50%;
     left: 0 !important;
@@ -55,7 +54,7 @@ body {
 }
 #slider-text{
   background: rgba(0, 0, 0, 0.699);
-  padding: 4vh;
+  /* padding: 4vh; */
   width: 100%;
   /* position: initial; */
   margin-left: -238px;
