@@ -44,6 +44,7 @@ endif;
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/hdlogo.png" type="image/x-icon">
 
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
@@ -64,7 +65,7 @@ endif;
 
          
           <!-- Side Widget -->
-          <div class="card my-4">
+          <div class="card my-4" style="border: 1px solid black">
             <h5 class="card-header  text-light" style="background-color: black;">Recent News</h5>
             <div class="card-body">
                       <ul class="mb-0">
@@ -74,9 +75,12 @@ while ($row=mysqli_fetch_array($query)) {
 
 ?>
 
-  <li>
-   <a style="text-decoration:none;color:black" href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><?php echo htmlentities($row['posttitle']);?></a>
-      </li>
+   <a style="text-decoration:none;color:black;font-family:serif;" href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>">
+   <img src="images/right.gif" alt="" style="height: 20px;width:20%;float:left;">
+   <li style="list-style-type: none">
+   <?php echo htmlentities($row['posttitle']);?>
+   </li>
+  </a>
             <?php } ?>
           </ul>
             </div>
@@ -95,7 +99,7 @@ $pid=intval($_GET['nid']);
 while ($row=mysqli_fetch_array($query)) {
 ?>
 
-          <div class=" mb-4">
+          <div class=" mb-4" style="background-color: black;color:white">
       
             <div class="card-body">
               <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
@@ -103,7 +107,7 @@ while ($row=mysqli_fetch_array($query)) {
                 <b>Sub Category : </b><?php echo htmlentities($row['subcategory']);?> <b> Posted on </b><?php echo htmlentities($row['postingdate']);?></p>
                 <hr />
 
- <img class="img-fluid rounded" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
+ <img style="height:55vh;width:75%" class="img-fluid rounded" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
   
               <p class="card-text"><?php 
 $pt=$row['postdetails'];

@@ -14,6 +14,7 @@ include('includes/config.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="images/hdlogo.png" type="image/x-icon">
 
     <title>Haldia News | Search  Page</title>
 
@@ -79,14 +80,32 @@ while ($row=mysqli_fetch_array($query)) {
 
 ?>
 
-          <div class="card mb-4">
+          <div class="card mb-4" style="border: 1px solid black;">
       
             <div class="card-body">
               <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
          
-              <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn btn-dark">Read More &rarr;</a>
+              <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" id="btn">Read More</a>
             </div>
-            <div class="card-footer text-muted">
+            <style>
+              #btn{
+                background-color: black;
+                color: white;
+                padding: 10px 30px 10px 15px;
+                border-radius: 5px;
+                font-family: sans-serif;
+                transition: 1s;
+                border: 1px solid black;
+              }
+              #btn:hover{
+                background-color: gray;
+                text-decoration: none;
+                /* color: black; */
+                transition: 1s;
+                border: 1px solid silver;
+              }
+            </style>
+            <div class="card-footer text-muted" style="border-top: 1px solid black;">
               Posted on <?php echo htmlentities($row['postingdate']);?>
            
             </div>

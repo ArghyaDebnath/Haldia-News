@@ -12,7 +12,7 @@ error_reporting(0);
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
         <!-- App title -->
-        <title>Stock News | Dashboard</title>
+        <title>Haldia News | Dashboard</title>
 		<link rel="stylesheet" href="../plugins/morris/morris.css">
 
         <!-- App css -->
@@ -22,6 +22,7 @@ error_reporting(0);
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="assets/images/users/hdlogo.png" type="image/x-icon">
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
         <script src="assets/js/modernizr.min.js"></script>
@@ -68,7 +69,7 @@ error_reporting(0);
                                     <h4 class="page-title">Dashboard</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
-                                            <a href="#">Stock News</a>
+                                            <a href="#">Haldia News</a>
                                         </li>
                                         <li>
                                             <a href="#">Admin</a>

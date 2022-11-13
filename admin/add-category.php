@@ -27,7 +27,7 @@ $error="Something went wrong . Please try again.";
 <html lang="en">
     <head>
 
-        <title>Stock News | Add Category</title>
+        <title>Haldia News | Add Category</title>
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -37,6 +37,7 @@ $error="Something went wrong . Please try again.";
         <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="assets/images/users/hdlogo.png" type="image/x-icon">
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
         <script src="assets/js/modernizr.min.js"></script>
 

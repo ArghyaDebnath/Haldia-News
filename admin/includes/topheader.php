@@ -2,12 +2,14 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="index.html" class="logo"><span>DAILY<span>NEWS</span></span><i class="mdi mdi-layers"></i></a>
+                    <a href="htdocs\Haldia-News\index.php" class="logo">
+                        <img src="assets/images/users/hdlogo.png" alt="Haldia News" style="height: 80%;width:auto;">
+                    </a>
                     
                 </div>
 
                 <!-- Button mobile view to collapse sidebar menu -->
-                <div class="navbar navbar-default" role="navigation">
+                <div class="navbar navbar-default" role="navigation" style="background-color: black;">
                     <div class="container">
 
                         <!-- Navbar-left -->
@@ -38,7 +40,6 @@
                                     <li><a href="change-password.php"><i class="ti-settings m-r-5"></i> Chnage Password</a></li>
                            
                                     <li><a href="logout.php"><i class="ti-power-off m-r-5"></i> Logout</a></li>
-                                    <li><a href="https://theskillstock.com/">TheSkillStock.</a></li>
                                 </ul>
                             </li>
 
