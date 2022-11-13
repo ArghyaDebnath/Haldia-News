@@ -81,7 +81,7 @@ $error="Something went wrong . Please try again.";
 
                         <div class="row">
 							<div class="col-xs-12">
-								<div class="page-title-box">
+								<div class="page-title-box" style="border-bottom:1px solid #5D6D7E;">
                                     <h4 class="page-title">Manage Posts </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
@@ -105,11 +105,11 @@ $error="Something went wrong . Please try again.";
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="card-box">
+                                <div class="card-box" style="border:1px solid #5D6D7E;">
                          
 
-                                    <div class="table-responsive">
-<table class="table table-colored table-centered table-inverse m-0">
+                                    <div class="table-responsive" style="border:1px solid #5D6D7E;">
+<table class="table table-colored table-centered table-inverse m-0" style="margin-bottom:20px;">
 <thead>
 <tr>
                                            
@@ -137,11 +137,11 @@ while($row=mysqli_fetch_array($query))
 {
 ?>
  <tr>
-<td><b><?php echo htmlentities($row['title']);?></b></td>
-<td><?php echo htmlentities($row['category'])?></td>
-<td><?php echo htmlentities($row['subcategory'])?></td>
+<td style="border-top:1px solid #5D6D7E;"><b><?php echo htmlentities($row['title']);?></b></td>
+<td style="border-top:1px solid #5D6D7E;"><?php echo htmlentities($row['category'])?></td>
+<td style="border-top:1px solid #5D6D7E;"><?php echo htmlentities($row['subcategory'])?></td>
 
-<td><a href="edit-post.php?pid=<?php echo htmlentities($row['postid']);?>"><i class="fa fa-pencil" style="color: #29b6f6;"></i></a> 
+<td style="border-top:1px solid #5D6D7E;"><a href="edit-post.php?pid=<?php echo htmlentities($row['postid']);?>"><i class="fa fa-pencil" style="color: #29b6f6;"></i></a> 
     &nbsp;<a href="manage-posts.php?pid=<?php echo htmlentities($row['postid']);?>&&action=del" onclick="return confirm('Do you reaaly want to delete ?')"> <i class="fa fa-trash-o" style="color: #f05050"></i></a> </td>
  </tr>
 <?php } }?>

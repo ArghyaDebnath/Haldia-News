@@ -102,16 +102,21 @@ while ($row=mysqli_fetch_array($query)) {
           </div>
 <?php } ?>
 
-    <ul class="pagination justify-content-center mb-4">
-        <li class="page-item"><a href="?pageno=1"  class="page-link">First</a></li>
+<ul class="pagination justify-content-center mb-4" id="card-hover">
+        <li class="page-item"><a style="background-color: #1C2833;color:white;cursor:pointer;" href="?pageno=1"  class="page-link">First</a></li>
         <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?> page-item">
-            <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>" class="page-link">Prev</a>
+            <a style="background-color: #2C3E50;color:white;cursor:pointer;" href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>" class="page-link">Prev</a>
         </li>
         <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?> page-item">
-            <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?> " class="page-link">Next</a>
+            <a style="background-color: #2C3E50;color:white;cursor:pointer;" href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?> " class="page-link">Next</a>
         </li>
-        <li class="page-item"><a href="?pageno=<?php echo $total_pages; ?>" class="page-link">Last</a></li>
+        <li class="page-item"><a style="background: #1C2833;color:white;cursor:pointer;" href="?pageno=<?php echo $total_pages; ?>" class="page-link">Last</a></li>
     </ul>
+    <style>
+      #card-hover li:hover{
+        background-color: #2C3E50;
+      }
+    </style>
 <?php } ?>
        
 

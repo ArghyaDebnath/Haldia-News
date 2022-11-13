@@ -65,7 +65,7 @@ error_reporting(0);
                     <div class="container">
                         <div class="row">
 							<div class="col-xs-12">
-								<div class="page-title-box">
+								<div class="page-title-box" style="border-bottom:1px solid #5D6D7E;">
                                     <h4 class="page-title">Dashboard</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
@@ -87,7 +87,7 @@ error_reporting(0);
                         <div class="row">
 <a href="manage-categories.php">
                             <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="card-box widget-box-one">
+                                <div class="card-box widget-box-one" style="border:1px solid #5D6D7E;background:#1C2833 ">
                                     <i class="mdi mdi-chart-areaspline widget-one-icon"></i>
                                     <div class="wigdet-one-content">
                                         <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Categories Listed</p>
@@ -102,7 +102,7 @@ $countcat=mysqli_num_rows($query);
                             </div></a><!-- end col -->
 <a href="manage-subcategories.php">
                             <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="card-box widget-box-one">
+                                <div class="card-box widget-box-one" style="border:1px solid #5D6D7E;background:#1C2833 ">
                                     <i class="mdi mdi-layers widget-one-icon"></i>
                                     <div class="wigdet-one-content">
                                         <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Listed Subcategories</p>
@@ -116,9 +116,17 @@ $countsubcat=mysqli_num_rows($query);
                             </div><!-- end col -->
 </a>
 
+                <style>
+                    .wigdet-one-content {
+                        color: gray;
+                    }.wigdet-one-content:hover{
+                        color: white;
+                    }
+                </style>
+
      <a href="manage-posts.php">                       
         <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="card-box widget-box-one">
+                                <div class="card-box widget-box-one" style="border:1px solid #5D6D7E;background:#1C2833 ">
                                     <i class="mdi mdi-layers widget-one-icon"></i>
                                     <div class="wigdet-one-content">
                                         <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Live News</p>
@@ -139,10 +147,10 @@ $countposts=mysqli_num_rows($query);
    <div class="row">
                     
       <a href="trash-posts.php"> <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="card-box widget-box-one">
+                                <div class="card-box widget-box-one" style="border:1px solid #5D6D7E;background:#1C2833 ">
                                     <i class="mdi mdi-layers widget-one-icon"></i>
                                     <div class="wigdet-one-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Trash News</p>
+                                        <p class="m-0 text-uppercase font-600 text-overflow" title="User This Month">Trash News</p>
 <?php $query=mysqli_query($con,"select * from tblposts where Is_Active=0");
 $countposts=mysqli_num_rows($query);
 ?>

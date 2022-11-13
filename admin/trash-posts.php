@@ -84,7 +84,7 @@ if($_GET['presid'])
 
                         <div class="row">
 							<div class="col-xs-12">
-								<div class="page-title-box">
+								<div class="page-title-box" style="border-bottom:1px solid #5D6D7E;">
                                     <h4 class="page-title">Trashed Posts </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
@@ -120,7 +120,7 @@ if($_GET['presid'])
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="card-box">
+                                <div class="card-box" style="border:1px solid #5D6D7E;">
                          
 
                                     <div class="table-responsive">
