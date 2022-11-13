@@ -51,10 +51,10 @@ $error="Something went wrong . Please try again.";
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
 
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/users/hdlogo.png" type="image/x-icon">
+
         <!-- App title -->
-        <title>Stock News | Add Post</title>
+        <title>Haldia News | Add Post</title>
 
         <!-- Summernote css -->
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />

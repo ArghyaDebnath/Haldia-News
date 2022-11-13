@@ -13,6 +13,7 @@ include('includes/config.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="images/hdlogo.png" type="image/x-icon">
 
     <title>Haldia News | Home Page</title>
 
@@ -67,24 +68,72 @@ $query=mysqli_query($con,"select tblposts.id as pid,tblposts.PostTitle as postti
 while ($row=mysqli_fetch_array($query)) {
 ?>
 
-          <div class="card mb-4">
- <img class="card-img-top" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
-            <div class="card-body">
-              <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
-                 <p><b>Category : </b> <a href="category.php?catid=<?php echo htmlentities($row['cid'])?>"><?php echo htmlentities($row['category']);?></a> </p>
-       
-              <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn btn-dark" id="RM-hover">Read More &rarr;</a>
-            </div>
+
             <style>
-              #RM-hover:hover{
+              #text{
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                        line-clamp: 1;
+                -webkit-box-orient: vertical;
+              }
+              .content-show{
+                margin-bottom: 10px;
+              }
+              #content-hide {
+                margin-top: 15px;
+                display: none;
+              }
+              #read-m-button{
                 background-color: black;
+                color: white;
+                padding: 6px 30px 6px 10px;
+                border-radius: 5px;
+                margin-bottom: 15px;
+                border: none;
+                transition: 1s;
+
+              }
+              #read-m-button:hover{
+                cursor: pointer;
+                background-color: #212F3D;
+                border: none;
+                transition: 1s;
+                
+              }
+              a{
+                text-decoration: none;
+              }
+              #latest-blog{
+                border: 1px solid black;
               }
             </style>
-            <div class="card-footer text-muted">
-              Posted on <?php echo htmlentities($row['postingdate']);?>
-           
-            </div>
-          </div>
+            
+              <div id="latest-blog" class="card mb-4">
+                <div class="container">
+                        <div class="">
+                            <div class="blog-post">
+                                <div class="blog-thumb">
+                                    <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="" id="RM-hover">
+                                      <img class="card-img-top" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
+                                    </a>
+                                </div>
+                                <div class="blog-content" style="margin-top: 15px">
+                                    <div class="content-show">
+                                        <h2 style="text-decoration: none"><?php echo htmlentities($row['posttitle']);?></h2>
+                                        <p><b>Category : </b> <a href="category.php?catid=<?php echo htmlentities($row['cid'])?>"><?php echo htmlentities($row['category']);?></a> </p>
+                                        <span>Posted on <?php echo htmlentities($row['postingdate']);?></span>
+                                    </div>
+                                    <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="" id="RM-hover">
+                                    <button id="read-m-button">Read More</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+              </div>
+          
 <?php } ?>
        
 
@@ -93,16 +142,21 @@ while ($row=mysqli_fetch_array($query)) {
           <!-- Pagination -->
 
 
-    <ul class="pagination justify-content-center mb-4">
-        <li class="page-item"><a href="?pageno=1"  class="page-link">First</a></li>
+    <ul class="pagination justify-content-center mb-4" id="card-hover">
+        <li class="page-item"><a style="background-color: #1C2833;color:white;cursor:pointer;" href="?pageno=1"  class="page-link">First</a></li>
         <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?> page-item">
-            <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>" class="page-link">Prev</a>
+            <a style="background-color: #2C3E50;color:white;cursor:pointer;" href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>" class="page-link">Prev</a>
         </li>
         <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?> page-item">
-            <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?> " class="page-link">Next</a>
+            <a style="background-color: #2C3E50;color:white;cursor:pointer;" href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?> " class="page-link">Next</a>
         </li>
-        <li class="page-item"><a href="?pageno=<?php echo $total_pages; ?>" class="page-link">Last</a></li>
+        <li class="page-item"><a style="background: #1C2833;color:white;cursor:pointer;" href="?pageno=<?php echo $total_pages; ?>" class="page-link">Last</a></li>
     </ul>
+    <style>
+      #card-hover li:hover{
+        background-color: #2C3E50;
+      }
+    </style>
 
         </div>
 
@@ -116,4 +170,8 @@ while ($row=mysqli_fetch_array($query)) {
 
     <!-- Footer -->
       <?php include('includes/footer.php');?>
+
+
+
+      <script src="js/hidden.js"></script>
 

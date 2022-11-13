@@ -52,17 +52,17 @@ body {
 }
 
 }
-#slider-text{
+/* #slider-text{
   background: rgba(0, 0, 0, 0.699);
   /* padding: 4vh; */
-  width: 100%;
+  /* width: 100%; */
   /* position: initial; */
-  margin-left: -238px;
-  font-size: 25px;
-  font-family: 'Oswald', sans-serif;
+  /* margin-left: -238px; */
+  /* font-size: 25px; */
+  /* font-family: 'Oswald', sans-serif; */
   
 
-}
+/* } */ 
 
 </style>
 <?php 
@@ -97,9 +97,10 @@ while ($row=mysqli_fetch_array($query)) {
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-     <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><img class="d-block w-100" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>"> </a>
+     <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><img style="height: 100%;width
+     :100%;background-size:cover;" id="slider-img" class="d-block w-100" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>"> </a>
        <div class="carousel-caption d-none d-md-block" id="slider-text">
-   <div class="card-title" id="card-title"><?php echo htmlentities($row['posttitle']);?></div>
+   <div class="card-title" id="card-title" style="background:rgba(0, 0, 0, 0.753);padding:20px;font-size:30px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"><?php echo htmlentities($row['posttitle']);?></div>
   </div>
     </div>
 <?php } ?>
@@ -122,9 +123,10 @@ $query=mysqli_query($con,"select tblposts.id as pid,tblposts.PostTitle as postti
 while ($row=mysqli_fetch_array($query)){
 ?>    
     <div class="carousel-item">
-       <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><img class="d-block w-100" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>"></a>
+       <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><img style="height: 100%;width
+       :100%;background-size:cover;" id="slider-img" class="d-block w-100" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>"></a>
        <div class="carousel-caption d-none d-md-block"  id="slider-text">
-    <div class="card-title"><?php echo htmlentities($row['posttitle']);?></div>
+    <div class="card-title" style="background-color: rgba(0, 0, 0, 0.753);padding:20px;font-size:30px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"><?php echo htmlentities($row['posttitle']);?></div>
   </div>
     </div>
 
@@ -148,10 +150,12 @@ $query=mysqli_query($con,"select tblposts.id as pid,tblposts.PostTitle as postti
 while ($row=mysqli_fetch_array($query)){
 ?>
     <div class="carousel-item">
-       <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><img class="d-block w-100" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>"></a>
+       <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><img style="height: 100%;width
+       :100%;background-size:cover;" id="slider-img" class="d-block w-100" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>"></a>
        <div class="carousel-caption d-none d-md-block"  id="slider-text">
-    <div class="card-title"><?php echo htmlentities($row['posttitle']);?></div>
-
+    <div class="card-title" id="card-title" style="background:rgba(0, 0, 0, 0.753);padding:20px;font-size:30px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"><?php echo htmlentities($row['posttitle']);?></div>
+<style>
+</style>
   </div>
     </div>
   </div>

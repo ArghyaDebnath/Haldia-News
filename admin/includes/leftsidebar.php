@@ -1,16 +1,16 @@
 <style type="text/css">
     .mdi{
-        color: orange;
+        color: white;
     }
     .span{
-        color: orange;
+        color: white;
     }
     .list-unstyled{
-        background-color: grey;
+        background-color: #273746;
     
     }
     .li-style:hover{
-        background-color: orange;
+        background-color: gray;
         color: white;
     }
     
@@ -18,7 +18,7 @@
 </style>
 
 
-            <div class="left side-menu" style="background-color: gray;">
+            <div class="left side-menu" style="background-color: black;">
                 <div class="sidebar-inner slimscrollleft">
 
                     <!--- Sidemenu -->
@@ -27,7 +27,7 @@
                         	<li class="menu-title" >Navigation</li>
 
                             <li class="has_sub">
-                                <a href="dashboard.php" class="waves-effect"><i class="mdi mdi-view-dashboard" ></i> <span style="color:orange;"> Dashboard </span> </a>
+                                <a href="dashboard.php" class="waves-effect"><i class="mdi mdi-view-dashboard" ></i> <span style="color:aqua;"> Dashboard </span> </a>
                          
                             </li>
 

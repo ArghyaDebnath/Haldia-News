@@ -1,14 +1,26 @@
 
           <!-- Search Widget -->
-          <div class="card mb-4">
+          <div class="card mb-4" style="border: 1px solid black;">
             <h5 class="card-header text-light" style="background-color: black;">Search</h5>
             <div class="card-body">
                    <form name="search" action="search.php" method="post">
               <div class="input-group">
            
-        <input type="text" name="searchtitle" class="form-control" placeholder="Search for..." required>
+        <input type="text" name="searchtitle" style="border: 1px solid black" class="form-control" placeholder="Search for..." required>
                 <span class="input-group-btn">
-                  <button class="btn btn-secondary " style="background-color: black;" type="submit">Go!</button>
+                  <button class="btn search-button" id="search-button" type="submit">Go!</button>
+                  <style>
+                    #search-button{
+                      background-color: black;
+                      color: white;
+                      transition: 1s;
+                    }
+                    #search-button:hover{
+                      background: #212F3D;
+                      transition: 1s;
+                      /* cursor: text; */
+                    }
+                  </style>
                 </span>
               </form>
               </div>
@@ -16,7 +28,7 @@
           </div>
 
           <!-- Categories Widget -->
-          <div class="card my-4">
+          <div class="card my-4" style="border: 1px solid black;">
             <h5 class="card-header  text-light" style="background-color: black;">Categories</h5>
             <div class="card-body">
               <div class="row">
@@ -44,10 +56,11 @@ while($row=mysqli_fetch_array($query))
                         margin-top: 2px;
                         text-align: center;
                         transition: .4s;
+                        
                       }
                       #category:hover{
                         text-decoration: none;
-                        background-color: gray;
+                        background-color: #212F3D;
                         /* border: 2px solid black; */
                         margin-bottom: 10px;
                         transition: .4s;
