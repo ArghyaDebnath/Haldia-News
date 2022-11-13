@@ -70,7 +70,7 @@ if($_GET['action']=='parmdel' && $_GET['rid'])
 
                         <div class="row">
 							<div class="col-xs-12">
-								<div class="page-title-box">
+								<div class="page-title-box" style="border-bottom:1px solid #5D6D7E;">
                                     <h4 class="page-title">Manage Categories</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>

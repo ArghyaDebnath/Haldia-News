@@ -66,7 +66,7 @@ $error="Something went wrong . Please try again.";
 
                         <div class="row">
 							<div class="col-xs-12">
-								<div class="page-title-box">
+								<div class="page-title-box" style="border-bottom:1px solid #5D6D7E;">
                                     <h4 class="page-title">Add Category</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
@@ -88,9 +88,9 @@ $error="Something went wrong . Please try again.";
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="card-box">
+                                <div class="card-box" style="border:1px solid #5D6D7E;">
                                     <h4 class="m-t-0 header-title"><b>Add Category </b></h4>
-                                    <hr />
+                                    <div style="border:1px solid #5D6D7E;margin-bottom:20px;"></div>
                         		
 
 
@@ -123,14 +123,14 @@ $error="Something went wrong . Please try again.";
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label">Category</label>
 	                                                <div class="col-md-10">
-	                                                    <input type="text" class="form-control" value="" name="category" required>
+	                                                    <input style="border:1px solid #5D6D7E;" type="text" class="form-control" value="" name="category" required>
 	                                                </div>
 	                                            </div>
 	                                     
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label">Category Description</label>
 	                                                <div class="col-md-10">
-	                                                    <textarea class="form-control" rows="5" name="description" required></textarea>
+	                                                    <textarea style="border:1px solid #5D6D7E;" class="form-control" rows="5" name="description" required></textarea>
 	                                                </div>
 	                                            </div>
 

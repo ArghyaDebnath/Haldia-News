@@ -51,10 +51,10 @@ $error="Something went wrong . Please try again.";
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
 
-        <link rel="shortcut icon" href="assets/images/users/hdlogo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/users/hdlogo.png" type="image/x-icon">
 
         <!-- App title -->
-        <title>Haldia News | Add Post</title>
+        <title>Stock News | Add Post</title>
 
         <!-- Summernote css -->
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
@@ -115,7 +115,7 @@ function getSubCat(val) {
 
                         <div class="row">
 							<div class="col-xs-12">
-								<div class="page-title-box">
+								<div class="page-title-box" style="border-bottom:1px solid #5D6D7E;">
                                     <h4 class="page-title">Add Post </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
@@ -161,14 +161,14 @@ function getSubCat(val) {
 <form name="addpost" method="post" enctype="multipart/form-data">
  <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Post Title</label>
-<input type="text" class="form-control" id="posttitle" name="posttitle" placeholder="Enter title" required>
+<input style="border:1px solid #5D6D7E;" type="text" class="form-control" id="posttitle" name="posttitle" placeholder="Enter title" required>
 </div>
 
 
 
 <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Category</label>
-<select class="form-control" name="category" id="category" onChange="getSubCat(this.value);" required>
+<select style="border:1px solid #5D6D7E;" class="form-control" name="category" id="category" onChange="getSubCat(this.value);" required>
 <option value="">Select Category </option>
 <?php
 // Feching active categories
@@ -184,7 +184,7 @@ while($result=mysqli_fetch_array($ret))
     
 <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Sub Category</label>
-<select class="form-control" name="subcategory" id="subcategory" required>
+<select style="border:1px solid #5D6D7E;" class="form-control" name="subcategory" id="subcategory" required>
 
 </select> 
 </div>
@@ -192,7 +192,7 @@ while($result=mysqli_fetch_array($ret))
 
 <div class="row">
 <div class="col-sm-12">
- <div class="card-box">
+ <div class="card-box" style="border:1px solid #5D6D7E;">
 <h4 class="m-b-30 m-t-0 header-title"><b>Post Details</b></h4>
 <textarea class="summernote" name="postdescription" required></textarea>
 </div>
@@ -210,8 +210,8 @@ while($result=mysqli_fetch_array($ret))
 </div>
 
 
-<button type="submit" name="submit" class="btn btn-success waves-effect waves-light">Save and Post</button>
- <button type="button" class="btn btn-danger waves-effect waves-light">Discard</button>
+<button style="margin-bottom: 20px" type="submit" name="submit" class="btn btn-success waves-effect waves-light">Save and Post</button>
+ <button style="margin-bottom:20px;" type="button" class="btn btn-danger waves-effect waves-light">Discard</button>
                                         </form>
                                     </div>
                                 </div> <!-- end p-20 -->

@@ -82,7 +82,7 @@ $error="Something went wrong . Please try again.";
 
                         <div class="row">
 							<div class="col-xs-12">
-								<div class="page-title-box">
+								<div class="page-title-box" style="border-bottom: 1px solid #5D6D7E;">
                                     <h4 class="page-title">Contact us Page  </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
@@ -132,7 +132,7 @@ while($row=mysqli_fetch_array($query))
                                         <form name="aboutus" method="post">
  <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Page Title</label>
-<input type="text" class="form-control" id="pagetitle" name="pagetitle" value="<?php echo htmlentities($row['PageTitle'])?>"  required>
+<input style="border:1px solid #5D6D7E;" type="text" class="form-control" id="pagetitle" name="pagetitle" value="<?php echo htmlentities($row['PageTitle'])?>"  required>
 </div>
 
 
@@ -143,7 +143,7 @@ while($row=mysqli_fetch_array($query))
 
      <div class="row">
 <div class="col-sm-12">
- <div class="card-box">
+ <div class="card-box" style="border: 1px solid #5D6D7E;">
 <h4 class="m-b-30 m-t-0 header-title"><b>Page Details</b></h4>
 <textarea class="summernote" name="pagedescription"  required><?php echo htmlentities($row['Description'])?></textarea>
 </div>
@@ -151,7 +151,7 @@ while($row=mysqli_fetch_array($query))
 </div>
 <?php } ?>
 
-<button type="submit" name="update" class="btn btn-success waves-effect waves-light">Update and Post</button>
+<button style="margin-bottom: 20px" type="submit" name="update" class="btn btn-success waves-effect waves-light">Update and Post</button>
 
                                         </form>
                                     </div>

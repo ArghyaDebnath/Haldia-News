@@ -70,8 +70,8 @@ if($_GET['action']=='del' && $_GET['rid'])
 
                         <div class="row">
 							<div class="col-xs-12">
-								<div class="page-title-box">
-                                    <h4 class="page-title">Manage Approved Comments</h4>
+								<div class="page-title-box" style="border-bottom: 1px solid #5D6D7E;">
+                                    <h4 class="page-title">Approved Comments</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Admin</a>
