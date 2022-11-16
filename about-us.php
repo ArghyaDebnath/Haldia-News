@@ -13,7 +13,7 @@ include('includes/config.php');
     <link rel="shortcut icon" href="images/hdlogo.png" type="image/x-icon">
     <meta name="author" content="">
 
-    <title>News Portal | About us</title>
+    <title>Haldia News | About us</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

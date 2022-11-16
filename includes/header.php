@@ -34,13 +34,13 @@
         <div class="collapse navbar-collapse"  id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link text-light" href="about-us.php">About</a>
-            </li>
-                 <li class="nav-item">
               <a class="nav-link text-light" href="index.php">News</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="about-us.php">About Us</a>
+            </li>
              <li class="nav-item">
-              <a class="nav-link text-light" href="contact-us.php">Contact us</a>
+              <a class="nav-link text-light" href="contact-us.php">Contact Us</a>
             </li>
              <li class="nav-item">
               <a class="nav-link text-light" href="admin/index.php">Admin</a>

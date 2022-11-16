@@ -40,7 +40,7 @@ endif;
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>News Portal | Home Page</title>
+    <title>Haldia News| Home Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -138,7 +138,7 @@ $pt=$row['postdetails'];
             <h5 class="card-header  text-light" style="background-color: black;">Leave a Comment:</h5>
             <div class="card-body">
               <form name="Comment" method="post">
-      <input type="hidden" name="csrftoken" value="<?php echo htmlentities($_SESSION['token']);?>"/>
+      <input type="hidden" value="<?php echo htmlentities($_SESSION['token']);?>" >
  <div class="form-group">
 <input type="text" name="name" class="form-control" placeholder="Enter your fullname" required>
 </div>

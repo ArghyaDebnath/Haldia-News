@@ -70,14 +70,7 @@
                                     <li class="li-style"><a href="manage-comments.php">Approved Comments</a></li>
                                 </ul>
                             </li>
-                               <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span class="span"> Menu </span class="span"> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                  <li class="li-style"><a href="menu.php">Add Menu </a></li>
-                                    <li class="li-style"><a href="edit-menu.php">Manage Menu</a></li>
-                                </ul>
-                            </li>     
-
+                             
                         </ul>
                     </div>
                     <!-- Sidebar -->
