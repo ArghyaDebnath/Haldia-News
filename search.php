@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 session_start();
 error_reporting(0);
 include('includes/config.php');
@@ -70,7 +70,7 @@ $st;
 $query=mysqli_query($con,"select tblposts.id as pid,tblposts.PostTitle as posttitle,tblcategory.CategoryName as category,tblsubcategory.Subcategory as subcategory,tblposts.PostDetails as postdetails,tblposts.PostingDate as postingdate,tblposts.PostUrl as url from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join  tblsubcategory on  tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.PostTitle like '%$st%' or tblposts.PostingDate like '%$st%' or tblposts.PostDetails like '%$st%' or tblcategory.CategoryName like '%$st%' or tblsubcategory.Subcategory like '%$st%' and tblposts.Is_Active=1 LIMIT $offset, $no_of_records_per_page");
 
 $rowcount=mysqli_num_rows($query);
-if($rowcount==0)
+if($rowcount==0) 
 {
 echo "No record found";
 }

@@ -1,3 +1,27 @@
+/*!
+ * 
+ * Super simple WYSIWYG editor v0.8.20
+ * https://summernote.org
+ *
+ *
+ * Copyright 2013- Alan Hong and contributors
+ * Summernote may be freely distributed under the MIT license.
+ *
+ * Date: 2021-10-14T21:15Z
+ *
+ */
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(self, function() {
+return /******/ (() => { // webpackBootstrap
+var __webpack_exports__ = {};
 (function ($) {
   $.extend($.summernote.lang, {
     'ca-ES': {
@@ -32,7 +56,8 @@
         maximumFileSize: 'Mida màxima de l\'arxiu',
         maximumFileSizeError: 'La mida màxima de l\'arxiu s\'ha superat.',
         url: 'URL de la imatge',
-        remove: 'Eliminar imatge'
+        remove: 'Eliminar imatge',
+        original: 'Original'
       },
       video: {
         video: 'Vídeo',
@@ -51,7 +76,14 @@
         openInNewWindow: 'Obrir en una finestra nova'
       },
       table: {
-        table: 'Taula'
+        table: 'Taula',
+        addRowAbove: 'Add row above',
+        addRowBelow: 'Add row below',
+        addColLeft: 'Add column left',
+        addColRight: 'Add column right',
+        delRow: 'Delete row',
+        delCol: 'Delete column',
+        delTable: 'Delete table'
       },
       hr: {
         insert: 'Inserir línia horitzontal'
@@ -105,7 +137,7 @@
         documentStyle: 'Estil del document',
         extraKeys: 'Tecles adicionals'
       },
-      help : {
+      help: {
         'insertParagraph': 'Inserir paràgraf',
         'undo': 'Desfer l\'última acció',
         'redo': 'Refer l\'última acció',
@@ -145,3 +177,8 @@
     }
   });
 })(jQuery);
+/******/ 	return __webpack_exports__;
+/******/ })()
+;
+});
+//# sourceMappingURL=summernote-ca-ES.js.map

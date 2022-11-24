@@ -1,3 +1,27 @@
+/*!
+ * 
+ * Super simple WYSIWYG editor v0.8.20
+ * https://summernote.org
+ *
+ *
+ * Copyright 2013- Alan Hong and contributors
+ * Summernote may be freely distributed under the MIT license.
+ *
+ * Date: 2021-10-14T21:15Z
+ *
+ */
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(self, function() {
+return /******/ (() => { // webpackBootstrap
+var __webpack_exports__ = {};
 (function ($) {
   $.extend($.summernote.lang, {
     'gl-ES': {
@@ -32,7 +56,8 @@
         maximumFileSize: 'Tamaño máximo do arquivo',
         maximumFileSizeError: 'Superaches o tamaño máximo do arquivo.',
         url: 'URL da imaxe',
-        remove: 'Eliminar imaxe'
+        remove: 'Eliminar imaxe',
+        original: 'Original'
       },
       video: {
         video: 'Vídeo',
@@ -51,14 +76,21 @@
         openInNewWindow: 'Abrir nunha nova xanela'
       },
       table: {
-        table: 'Táboa'
+        table: 'Táboa',
+        addRowAbove: 'Add row above',
+        addRowBelow: 'Add row below',
+        addColLeft: 'Add column left',
+        addColRight: 'Add column right',
+        delRow: 'Delete row',
+        delCol: 'Delete column',
+        delTable: 'Delete table'
       },
       hr: {
         insert: 'Inserir liña horizontal'
       },
       style: {
         style: 'Estilo',
-        normal: 'Normal',
+        p: 'Normal',
         blockquote: 'Cita',
         pre: 'Código',
         h1: 'Título 1',
@@ -105,7 +137,7 @@
         documentStyle: 'Estilo de documento',
         extraKeys: 'Teclas adicionais'
       },
-      help : {
+      help: {
         'insertParagraph': 'Inserir parágrafo',
         'undo': 'Desfacer última acción',
         'redo': 'Refacer última acción',
@@ -145,3 +177,8 @@
     }
   });
 })(jQuery);
+/******/ 	return __webpack_exports__;
+/******/ })()
+;
+});
+//# sourceMappingURL=summernote-gl-ES.js.map

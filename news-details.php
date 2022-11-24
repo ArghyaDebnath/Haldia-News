@@ -40,7 +40,7 @@ endif;
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Haldia News| Home Page</title>
+    <title>News Portal | Home Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -65,23 +65,37 @@ endif;
 
          
           <!-- Side Widget -->
-          <div class="card my-4" style="border: 1px solid black">
+         <div class="card my-4" style="border: 1px solid black">
             <h5 class="card-header  text-light" style="background-color: black;">Recent News</h5>
             <div class="card-body">
-                      <ul class="mb-0">
-<?php
-$query=mysqli_query($con,"select tblposts.id as pid,tblposts.PostTitle as posttitle from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join  tblsubcategory on  tblsubcategory.SubCategoryId=tblposts.SubCategoryId limit 8");
-while ($row=mysqli_fetch_array($query)) {
+            <ul class="mb-0" style="list-style-type: none;">
+                      <?php 
+     if (isset($_GET['pageno'])) {
+            $pageno = $_GET['pageno'];
+        } else {
+            $pageno = 1;
+        }
+        $no_of_records_per_page = 5;
+        $offset = ($pageno-1) * $no_of_records_per_page;
 
-?>
 
-   <a style="text-decoration:none;color:black;font-family:serif;" href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>">
-   <img src="images/right.gif" alt="" style="height: 20px;width:20%;float:left;">
-   <li style="list-style-type: none">
-   <?php echo htmlentities($row['posttitle']);?>
-   </li>
+        $total_pages_sql = "SELECT COUNT(*) FROM tblposts";
+        $result = mysqli_query($con,$total_pages_sql);
+        $total_rows = mysqli_fetch_array($result)[0];
+        $total_pages = ceil($total_rows / $no_of_records_per_page);   
+
+$query=mysqli_query($con,"select tblposts.id as pid,tblposts.PostTitle as posttitle,tblposts.PostImage,tblcategory.CategoryName as category,tblcategory.id as cid,tblsubcategory.Subcategory as subcategory,tblposts.PostDetails as postdetails,tblposts.PostingDate as postingdate,tblposts.PostUrl as url from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join  tblsubcategory on  tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.Is_Active=1 order by tblposts.id desc  LIMIT $offset, $no_of_records_per_page");
+while ($row=mysqli_fetch_array($query)){
+?>    
+    <a style="text-decoration:none;color:black;" href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>">
+    <img src="images/right.gif" alt="→" style="height: 20px;width:20%;float:left;">
+    <li >
+      <?php echo htmlentities($row['posttitle']);?>
+    </li>
   </a>
-            <?php } ?>
+
+<?php } ?>
+
           </ul>
             </div>
           </div>
@@ -107,7 +121,7 @@ while ($row=mysqli_fetch_array($query)) {
                 <b>Sub Category : </b><?php echo htmlentities($row['subcategory']);?> <b> Posted on </b><?php echo htmlentities($row['postingdate']);?></p>
                 <hr />
 
- <img style="height:55vh;width:75%" class="img-fluid rounded" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
+ <img  class="img-fluid rounded" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
   
               <p class="card-text"><?php 
 $pt=$row['postdetails'];
@@ -138,7 +152,7 @@ $pt=$row['postdetails'];
             <h5 class="card-header  text-light" style="background-color: black;">Leave a Comment:</h5>
             <div class="card-body">
               <form name="Comment" method="post">
-      <input type="hidden" value="<?php echo htmlentities($_SESSION['token']);?>" >
+      <input type="hidden" name="csrftoken" value="<?php echo htmlentities($_SESSION['token']);?>"/>
  <div class="form-group">
 <input type="text" name="name" class="form-control" placeholder="Enter your fullname" required>
 </div>

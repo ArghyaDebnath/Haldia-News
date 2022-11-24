@@ -54,7 +54,7 @@ include('includes/config.php');
         } else {
             $pageno = 1;
         }
-        $no_of_records_per_page = 8;
+        $no_of_records_per_page = 4;
         $offset = ($pageno-1) * $no_of_records_per_page;
 
 
@@ -152,6 +152,7 @@ while ($row=mysqli_fetch_array($query)) {
         </li>
         <li class="page-item"><a style="background: #1C2833;color:white;cursor:pointer;" href="?pageno=<?php echo $total_pages; ?>" class="page-link">Last</a></li>
     </ul>
+    
     <style>
       #card-hover li:hover{
         background-color: #2C3E50;

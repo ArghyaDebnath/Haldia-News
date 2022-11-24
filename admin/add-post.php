@@ -54,7 +54,7 @@ $error="Something went wrong . Please try again.";
     <link rel="shortcut icon" href="assets/images/users/hdlogo.png" type="image/x-icon">
 
         <!-- App title -->
-        <title>Stock News | Add Post</title>
+        <title>Haldia News | Add Post</title>
 
         <!-- Summernote css -->
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
