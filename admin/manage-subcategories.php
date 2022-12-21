@@ -29,10 +29,38 @@ if($_GET['action']=='perdel' && $_GET['scid'])
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <style>
+#myTable {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    font-family:Arial, Helvetica, sans-serif;   
+    min-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+#myTable td, #myTable th {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+#myTable tr:nth-child(even){background-color: white;}
+
+#myTable tr:hover {background-color: black;color: white;}
+
+#myTable th {
+  padding-top: 12px;
+  width:40px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+</style>
 
         <title> Haldia News | Manage SubCategories</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
+        <!-- <link href="assets/css/core.css" rel="stylesheet" type="text/css" /> -->
         <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
@@ -41,6 +69,9 @@ if($_GET['action']=='perdel' && $_GET['scid'])
         <link rel="shortcut icon" href="assets/images/users/hdlogo.png" type="image/x-icon">
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
         <script src="assets/js/modernizr.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 
     </head>
 
@@ -124,7 +155,7 @@ if($_GET['action']=='perdel' && $_GET['scid'])
  </div>
 
 												<div class="table-responsive">
-                                                    <table class="table m-0 table-colored-bordered table-bordered-primary">
+                                                <table id="myTable" class="cell-border" style="width:100%">
                                                         <thead>
                                                             <tr>
                                                                 <th>#</th>
@@ -198,7 +229,7 @@ $cnt++;
  </div>
 
 <div class="table-responsive">
-   <table class="table m-0 table-colored-bordered table-bordered-danger">
+<table id="myTable" class="cell-border" style="width:100%">
                                                         <thead>
                                                             <tr>
                                                                 <th>#</th>
@@ -278,7 +309,7 @@ $cnt++;
                     </div> <!-- container -->
 
                 </div> <!-- content -->
-<?php include('includes/footer.php');?>
+<!-- <?php include('includes/footer.php');?> -->
             </div>
 
         </div>
@@ -304,6 +335,23 @@ $cnt++;
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
+        <script>
+            $(document).ready(function () 
+            {
+               $('#myTable').DataTable({
+                "pagingtype": "full_numbers", "lengthMenu":[
+                    [10, 25, 50, -1],[10, 25, 50, "All"]
+                ],
+                responsive: true,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search Data",
+                }
+               });
+            });
+        </script>
+              <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>   
 
     </body>
 </html>

@@ -31,6 +31,34 @@ if($_GET['presid'])
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <style>
+#myTable {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    font-family:Arial, Helvetica, sans-serif;   
+    min-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+#myTable td, #myTable th {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+#myTable tr:nth-child(even){background-color: white;}
+
+#myTable tr:hover {background-color: black;color: white;}
+
+#myTable th {
+  padding-top: 12px;
+  width:40px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+</style>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
@@ -48,13 +76,16 @@ if($_GET['presid'])
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
+        <!-- <link href="assets/css/core.css" rel="stylesheet" type="text/css" /> -->
         <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js">
+        
 
         <script src="assets/js/modernizr.min.js"></script>
 
@@ -124,10 +155,11 @@ if($_GET['presid'])
                          
 
                                     <div class="table-responsive">
-<table class="table table-colored table-centered table-inverse m-0">
+                                    <table id="myTable"class="display" style="width:100%">
 <thead>
 <tr>
                                            
+<th>Sl No.</th>
 <th>Title</th>
 <th>Category</th>
 <th>Subcategory</th>
@@ -148,10 +180,12 @@ if($rowcount==0)
 <tr>
 <?php 
 } else {
+    $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
 ?>
  <tr>
+ <th scope="row"><?php echo htmlentities($cnt);?></th>
 <td><b><?php echo htmlentities($row['title']);?></b></td>
 <td><?php echo htmlentities($row['category'])?></td>
 <td><?php echo htmlentities($row['subcategory'])?></td>
@@ -162,7 +196,7 @@ while($row=mysqli_fetch_array($query))
     <a href="trash-posts.php?presid=<?php echo htmlentities($row['postid']);?>&&action=perdel" onclick="return confirm('Do you really want to delete ?')"><i class="fa fa-trash-o" style="color: #f05050" title="Permanently delete this post"></i></a> 
  </td>
  </tr>
-<?php } }?>
+<?php $cnt++;} }?>
                                                
                                             </tbody>
                                         </table>
@@ -177,7 +211,7 @@ while($row=mysqli_fetch_array($query))
 
                 </div> <!-- content -->
 
-       <?php include('includes/footer.php');?>
+       <!-- <?php include('includes/footer.php');?> -->
 
             </div>
 
@@ -228,6 +262,23 @@ while($row=mysqli_fetch_array($query))
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+            $(document).ready(function () 
+            {
+               $('#myTable').DataTable({
+                "pagingtype": "full_numbers", "lengthMenu":[
+                    [10, 25, 50, -1],[10, 25, 50, "All"]
+                ],
+                responsive: true,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search Data",
+                }
+               });
+            });
+        </script>
 
     </body>
 </html>

@@ -21,6 +21,34 @@ $error="Something went wrong . Please try again.";
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <style>
+#myTable {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    font-family:Arial, Helvetica, sans-serif;   
+    min-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+#myTable td, #myTable th {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+#myTable tr:nth-child(even){background-color: white;}
+
+#myTable tr:hover {background-color: black;color: white;}
+
+#myTable th {
+  padding-top: 12px;
+  width:40px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+</style>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
@@ -34,17 +62,21 @@ $error="Something went wrong . Please try again.";
 		<link rel="stylesheet" href="../plugins/morris/morris.css">
 
         <!-- jvectormap -->
-        <link href="../plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+        <!-- <link href="../plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" /> -->
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
+        <!-- <link href="assets/css/core.css" rel="stylesheet" type="text/css" /> -->
         <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+        
 
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,7 +93,7 @@ $error="Something went wrong . Please try again.";
     <body class="fixed-left">
 
         <!-- Begin page -->
-        <div id="wrapper">
+        <!-- <div id="wrapper"> -->
 
             <!-- Top Bar Start -->
            <?php include('includes/topheader.php');?>
@@ -81,7 +113,7 @@ $error="Something went wrong . Please try again.";
 
                         <div class="row">
 							<div class="col-xs-12">
-								<div class="page-title-box" style="border-bottom:1px solid #5D6D7E;">
+								<div class="page-title-box" style="border-bottom:1px solid black;">
                                     <h4 class="page-title">Manage Posts </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
@@ -105,24 +137,28 @@ $error="Something went wrong . Please try again.";
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="card-box" style="border:1px solid #5D6D7E;">
+                                <div class="card-box" style="border:1px solid black;">
                          
 
-                                    <div class="table-responsive" style="border:1px solid #5D6D7E;">
-<table class="table table-colored table-centered table-inverse m-0" style="margin-bottom:20px;">
+                                    <div class="table-responsive" style="border:2px solid black;">
+<table id="myTable" class="cell-border" style="width:100%">
 <thead>
 <tr>
                                            
+<th>Sl No.</th>
 <th>Title</th>
 <th>Category</th>
 <th>Subcategory</th>
+<th>Posting Date</th>
 <th>Action</th>
 </tr>
 </thead>
 <tbody>
 
 <?php
-$query=mysqli_query($con,"select tblposts.id as postid,tblposts.PostTitle as title,tblcategory.CategoryName as category,tblsubcategory.Subcategory as subcategory from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join tblsubcategory on tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.Is_Active=1 ");
+
+$query=mysqli_query($con,"select tblposts.id as postid,tblposts.PostTitle as title,tblposts.PostingDate as date,tblcategory.CategoryName as category,tblsubcategory.Subcategory as subcategory from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join tblsubcategory on tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.Is_Active=1 ");
+
 $rowcount=mysqli_num_rows($query);
 if($rowcount==0)
 {
@@ -132,21 +168,39 @@ if($rowcount==0)
 <td colspan="4" align="center"><h3 style="color:red">No record found</h3></td>
 <tr>
 <?php 
+
 } else {
+    $cnt=1;
 while($row=mysqli_fetch_array($query))
+
+
 {
 ?>
  <tr>
-<td style="border-top:1px solid #5D6D7E;"><b><?php echo htmlentities($row['title']);?></b></td>
-<td style="border-top:1px solid #5D6D7E;"><?php echo htmlentities($row['category'])?></td>
-<td style="border-top:1px solid #5D6D7E;"><?php echo htmlentities($row['subcategory'])?></td>
+    
+ <th scope="row"><?php echo htmlentities($cnt);?></th>
+<td ><b><?php echo htmlentities($row['title']);?></b></td>
+<td ><?php echo htmlentities($row['category'])?></td>
+<td ><?php echo htmlentities($row['subcategory'])?></td>
+<td ><?php echo htmlentities($row['date'])?></td>
 
-<td style="border-top:1px solid #5D6D7E;"><a href="edit-post.php?pid=<?php echo htmlentities($row['postid']);?>"><i class="fa fa-pencil" style="color: #29b6f6;"></i></a> 
+<td ><a href="edit-post.php?pid=<?php echo htmlentities($row['postid']);?>"><i class="fa fa-pencil" style="color: #29b6f6;"></i></a> 
     &nbsp;<a href="manage-posts.php?pid=<?php echo htmlentities($row['postid']);?>&&action=del" onclick="return confirm('Do you reaaly want to delete ?')"> <i class="fa fa-trash-o" style="color: #f05050"></i></a> </td>
  </tr>
-<?php } }?>
+ 
+<?php $cnt++;}}?>
                                                
                                             </tbody>
+                                            <tfoot>
+            <tr>
+            <th>Sl No.</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Posting Date</th>
+             <th>Action</th>
+            </tr>
+        </tfoot>
                                         </table>
                                     </div>
                                 </div>
@@ -159,7 +213,7 @@ while($row=mysqli_fetch_array($query))
 
                 </div> <!-- content -->
 
-       <?php include('includes/footer.php');?>
+       <!-- <?php include('includes/footer.php');?> -->
 
             </div>
 
@@ -170,7 +224,10 @@ while($row=mysqli_fetch_array($query))
 
 
         </div>
-        <!-- END wrapper -->
+        <!-- END wrapper -->z
+        <script>
+           
+        </script>
 
 
 
@@ -188,6 +245,25 @@ while($row=mysqli_fetch_array($query))
         <script src="assets/js/jquery.slimscroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
         <script src="../plugins/switchery/switchery.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function () 
+            {
+               $('#myTable').DataTable({
+                    
+                "pagingtype": "full_numbers", "lengthMenu":[
+                    [10, 25, 50, -1],[10, 25, 50, "All"]
+                ],
+                responsive: true,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search Data",
+                }
+               });
+            });
+        </script>
 
         <!-- CounterUp  -->
         <script src="../plugins/waypoints/jquery.waypoints.min.js"></script>
@@ -210,6 +286,6 @@ while($row=mysqli_fetch_array($query))
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
-
+        </div>
     </body>
 </html>

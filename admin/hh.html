@@ -1,0 +1,199 @@
+<?php 
+session_start();
+include('includes/config.php');
+error_reporting(0);
+
+
+if($_GET['action']='del')
+{
+$postid=intval($_GET['pid']);
+$query=mysqli_query($con,"update tblposts set Is_Active=0 where id='$postid'");
+if($query)
+{
+$msg="Post deleted ";
+}
+else{
+$error="Something went wrong . Please try again.";    
+} 
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | DataTables</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+</head>
+<body class="fixed-left">
+
+  <!-- Begin page -->
+  <div id="wrapper">
+
+    <!-- Top Bar Start -->
+   <?php include('includes/topheader.php');?>
+
+    <!-- ========== Left Sidebar Start ========== -->
+   <?php include('includes/leftsidebar.php');?>
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container">
+
+
+                <div class="row">
+      <div class="col-xs-12">
+        <div class="page-title-box" style="border-bottom:1px solid #5D6D7E;">
+                            <h4 class="page-title">Manage Posts </h4>
+                            <ol class="breadcrumb p-0 m-0">
+                                <li>
+                                    <a href="#">Admin</a>
+                                </li>
+                                <li>
+                                    <a href="#">Posts</a>
+                                </li>
+                                <li class="active">
+                                    Manage Post  
+                                </li>
+                            </ol>
+                            <div class="clearfix"></div>
+                        </div>
+      </div>
+    </div>
+  <!-- Content Wrapper. Contains page content -->
+  
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">DataTable with default features</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                                                               
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Subcategory</th>
+                    <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+                    <?php
+                    $query=mysqli_query($con,"select tblposts.id as postid,tblposts.PostTitle as title,tblcategory.CategoryName as category,tblsubcategory.Subcategory as subcategory from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join tblsubcategory on tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.Is_Active=1 ");
+                    $rowcount=mysqli_num_rows($query);
+                    if($rowcount==0)
+                    {
+                    ?>
+                    <tr>
+                    
+                    <td colspan="4" align="center"><h3 style="color:red">No record found</h3></td>
+                    <tr>
+                    <?php 
+                    } else {
+                    while($row=mysqli_fetch_array($query))
+                    {
+                    ?>
+                     <tr>
+                    <td style="border-top:1px solid #5D6D7E;"><b><?php echo htmlentities($row['title']);?></b></td>
+                    <td style="border-top:1px solid #5D6D7E;"><?php echo htmlentities($row['category'])?></td>
+                    <td style="border-top:1px solid #5D6D7E;"><?php echo htmlentities($row['subcategory'])?></td>
+                    
+                    <td style="border-top:1px solid #5D6D7E;"><a href="edit-post.php?pid=<?php echo htmlentities($row['postid']);?>"><i class="fa fa-pencil" style="color: #29b6f6;"></i></a> 
+                        &nbsp;<a href="manage-posts.php?pid=<?php echo htmlentities($row['postid']);?>&&action=del" onclick="return confirm('Do you reaaly want to delete ?')"> <i class="fa fa-trash-o" style="color: #f05050"></i></a> </td>
+                     </tr>
+                    <?php } }?>
+                                                                   
+                                                                </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.2.0
+    </div>
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="assets/plugins/jszip/jszip.min.js"></script>
+<script src="assets/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="assets/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- AdminLTE App -->
+<script src="assets/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="assets/dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+</body>
+</html>
